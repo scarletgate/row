@@ -6,5 +6,12 @@
   <%= f.text_area :content %>
   <h6>画像</h6>
   <%= f.attachment_field :post_image %>
-  <div><%= f.submit '投稿' %></div>
+  <h6>共有設定</h6>
+  <%= f.radio_button :is_shered, false %>
+  <%= f.label :is_shered, '他のユーザーへ公開しない', value: false %>
+
+  <%= f.radio_button :is_shered, true %>
+  <%= f.label :is_shered, '公開する', value: true %>
+
+  <div><%= f.submit '投稿', class: "btn btn-success" %></div>
 <% end %>

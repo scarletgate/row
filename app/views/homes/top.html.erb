@@ -1,2 +1,12 @@
 <h1>Homes#top</h1>
 <p>Find me in app/views/homes/top.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-4">
+      <% @posts.each do |post| %>
+        <%= post.title %>
+        <%= post.user %>が<%= post.created_at %>に投稿しました。
+      <% end %>
+    </div>
+  </div>
+</div>

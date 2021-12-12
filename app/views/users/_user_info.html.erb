@@ -1,5 +1,5 @@
-<h3>会員情報</h3>
-<%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no-image.jpg" %>
+<h5>会員情報</h5>
+<%#= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no-image.jpg" %>
 <table class="table">
   <tbody>
     <tr>
@@ -21,7 +21,7 @@
     <tr>
       <th>
         <% if user == current_user %>
-          <%= link_to "プロフィールを編集する", edit_user_path(user), class: "btn btn-outline-secondary" %>
+          <%= link_to "プロフィールを編集する", edit_user_path(user), class: "btn btn-secondary" %>
         <% else %>
         <% end %>
       </th>
