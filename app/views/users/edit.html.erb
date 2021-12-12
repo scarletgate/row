@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <h3>会員情報編集</h3>
+      <%= form_with model: @user, local:true do |f| %>
+        <div class="from-group">
+          <lable for="user_name">ニックネーム</lable>
+          <%= f.text_field :name, autofocus: true %>
+        </div>
+        <div class="from-group">
+          <lable for="user_introduction">自己紹介</lable>
+          <%= f.text_area :introduction, autocomplete: "自己紹介を記入出来ます。" %>
+        </div>
+        <div class="from-group">
+          <lable for="user_profile_image">プロフィール画像</lable>
+          <%= f.attachment_field :profile_image %>
+        </div>
+        <div class="from-group">
+          <%= f.submit '更新', class: "btn btn-success" %>
+          <%= link_to "退会する", check_user_path, class: "btn btn-danger" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

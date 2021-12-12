@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'users/user_info', user: @user %>
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <h5>投稿記事</h5>
+      <%= link_to '新規投稿', new_post_path %>
+      <table class="table table-hover table-inveres">
+        <thead>
+          <tr>
+            <th>タイトル</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @posts.each do |post| %>
+          <tr>
+            <td><%= post.title %></td>
+            <td><%= post.content %></td>
+            <td></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
