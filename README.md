@@ -1,24 +1,27 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+その際、分からない事や分かりやすい説明をする為に検索をしますが、デスクワーク関係全般で纏まっている<br>
+サイトが無かった為、個別に参考になるサイトを探していました。<br>
+こうした作業には意外と時間が掛かり、また過去に解決した事でも自身で別途マニュアル等に纏めていないと<br>
+再度調べ直したりする事態になる事があり、自身の業務に影響が出たり負担に感じる事がありました。<br>
+そこでデスクワーク全般について解決方法の記録や知識の共有が出来るサイトが１つある事で、多くの人が<br>
+調べやすく、そしてスムーズな問題解決による負担の軽減になるのではないかと思いこのテーマにしました。
 
-Things you may want to cover:
+### ターゲットユーザ
+デスクワークをされている方や、パソコン全般での困り事の解決方法を探されている人。
 
-* Ruby version
+### 主な利用シーン
+自分が解決したトラブルの記録や共有をしたいとき。<br>
+また、他の人の解決方法を探したい場合など。
 
-* System dependencies
+## 設計書
+<br>
 
-* Configuration
+## チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/1oW_U2yXFZ7n4gt21CLCFkBSL3jUxHESfnBNJCrTjRas/edit?usp=sharing
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
