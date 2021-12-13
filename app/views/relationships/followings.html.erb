@@ -1,8 +1,8 @@
-<% if @users.exists? %>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-        <h2><% @user.name %>のフォロー</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-10 col-lg-8 px-5 px-sm-0 mx-auto">
+      <h4><%= @user.name %>さんのフォローリスト</h4>
+      <% if @users.exists? %>
         <table class="table">
           <thead>
             <tr>
@@ -15,16 +15,17 @@
           <tbody>
             <% @users.each do |user| %>
             <tr>
-              <th></th>
-              <th><%= user.name %></th>
-              <th>フォロー数：</th>
-              <th></th>
+              <th><%= attachment_image_tag user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></th>
+              <th><%= link_to user.name, user_path(user) %></th>
+              <th>フォロー数：<%= user.followings.count %></th>
+              <th>フォロワー数：<%= user.followers.count %></th>
             </tr>
+            <% end %>
           </tbody>
         </table>
-      </div>
+      <% else %>
+        <p>ユーザーはいません</p>
+      <% end %>
     </div>
   </div>
-<% else %>
-  <p>ユーザーはいません</p>
-<% end %>
+</div>

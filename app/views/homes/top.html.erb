@@ -2,11 +2,28 @@
 <p>Find me in app/views/homes/top.html.erb</p>
 <div class="container">
   <div class="row">
-    <div class="col-md-6 offset-md-4">
-      <% @posts.each do |post| %>
-        <%= post.title %>
-        <%= post.user %>が<%= post.created_at %>に投稿しました。
-      <% end %>
+    <div class="col-sm-12 col-md-10 col-lg-8 px-5 px-sm-0 mx-auto">
+      <h4>新着投稿</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>画像</th>
+            <th>ユーザー名</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @posts.each do |post| %>
+          <tr>
+            <th><%= post.user.name %></th>
+            <th><%= post.title %></th>
+            <th></th>
+            <th></th>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

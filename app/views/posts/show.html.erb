@@ -1,9 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-4">
-      <%= render 'users/user_info', user: @user %>
-    </div>
-    <div class="col-md-7 offset-md-1">
+    <div class="col-md-7">
       <h5>投稿詳細</h5>
         <h6><%= @post.title %></h6>
         <% if @user == current_user %>
@@ -12,6 +9,9 @@
         <% end %>
         <p>投稿者：<%= link_to @user.name, user_path(@user.id) %></p>
         <p><%= @post.content %></p>
+    </div>
+    <div class="col-md-4 offset-md-1">
+      <%= render 'post_comments/post_comment', user: @user %>
     </div>
   </div>
 </div>
