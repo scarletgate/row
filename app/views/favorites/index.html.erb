@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-10 col-lg-8 px-5 px-sm-0 mx-auto">
+      <h4><%= @user.name %>さんのいいねした投稿</h4>
+      <% if @users.exists? %>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>画像</th>
+              <th>ユーザー名</th>
+              <th>タイトル</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
+            <tr>
+              <th></th>
+              <th><%= user.user.name %></th>
+              <th><%= user.post.title %></th>
+              <th></th>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+        <p>いいねした投稿はありません</p>
+      <% end %>
+    </div>
+  </div>
+</div>
