@@ -6,10 +6,11 @@
     <div class="col-md-7 offset-md-1">
       <h5>投稿詳細</h5>
         <h6><%= @post.title %></h6>
-        <%= link_to "編集", edit_post_path(@post), class: "btn btn-info" %>
-        <%= link_to "削除", post_path(@post),method: :delete, class: "btn btn-danger" %>
-
-        <p>投稿者：<%= @user.name %></p>
+        <% if @user == current_user %>
+          <%= link_to "編集", edit_post_path(@post), class: "btn btn-info" %>
+          <%= link_to "削除", post_path(@post),method: :delete, class: "btn btn-danger" %>
+        <% end %>
+        <p>投稿者：<%= link_to @user.name, user_path(@user.id) %></p>
         <p><%= @post.content %></p>
     </div>
   </div>

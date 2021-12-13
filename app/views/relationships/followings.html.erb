@@ -1,0 +1,30 @@
+<% if @users.exists? %>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+        <h2><% @user.name %>のフォロー</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>画像</th>
+              <th>ユーザー名</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
+            <tr>
+              <th></th>
+              <th><%= user.name %></th>
+              <th>フォロー数：</th>
+              <th></th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <p>ユーザーはいません</p>
+<% end %>
