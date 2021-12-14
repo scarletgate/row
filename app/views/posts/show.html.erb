@@ -1,14 +1,17 @@
 <div class="container">
   <div class="row">
     <div class="col-md-7">
-      <h5>投稿詳細</h5>
+      <h3>投稿詳細</h3>
         <h6><%= @post.title %></h6>
         <% if @user == current_user %>
           <%= link_to "編集", edit_post_path(@post), class: "btn btn-info" %>
           <%= link_to "削除", post_path(@post),method: :delete, class: "btn btn-danger" %>
         <% end %>
         <p>投稿者：<%= link_to @user.name, user_path(@user.id) %></p>
-        <p><%= @post.content %></p>
+        <%= @post.created_at %>に投稿 &nbsp; <%= @post.updated_at %>に更新<br />
+        <div>
+          <%= @post.content %>
+        </div>
     </div>
     <div class="col-md-4 offset-md-1">
       <%= render 'post_comments/post_comment', user: @user %>

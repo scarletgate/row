@@ -18,18 +18,22 @@
 <h5>コメント</h5>
 <div>
   <p>コメント件数：<%= @post.post_comments.count %>件</p>
+  <ul class="list-group">
   <% @post.post_comments.each do |post_comment| %>
-    <%= post_comment.user.name %>
-    <%= post_comment.created_at.strftime('%Y/%m/%d') %><br />
-    <%= post_comment.comment %>
-    <% if post_comment.user == current_user %>
-      <div><%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete %></div>
-    <% end %>
+    <li class="list-group-item">
+      <%= post_comment.user.name %>
+      <%= post_comment.created_at.strftime('%Y/%m/%d') %><br />
+      &nbsp;<%= post_comment.comment %>
+      <% if post_comment.user == current_user %>
+        <div><%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete %></div>
+      <% end %>
+    </li>
   <% end %>
+  </ul>
 </div>
 <div>
   <%= form_with(model:[@post, @post_comment], local: true) do |f| %>
-    <div><%= f.text_area :commnet, rows:'5', placeholder: "コメント入力欄" %></div>
+    <div><%= f.text_area :comment, cols:'40', rows:'4', placeholder: "コメント入力欄" %></div>
     <div><%= f.submit "コメントを送信", class: "btn btn-success" %></div>
   <% end %>
 </div>
