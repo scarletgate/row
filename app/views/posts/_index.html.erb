@@ -1,0 +1,12 @@
+<% if posts.exists? %>
+  <ul class="list-group">
+  <% posts.each do |post| %>
+    <li class="list-group-item">
+      投稿者：<%= link_to post.user.name, user_path(post.user_id) %><br />
+      <%= link_to post.title, post_path(post.id) %><br />
+    </li>
+  <% end %>
+  </ul>
+<% else %>
+  <p>投稿はありません</p>
+<% end %>
