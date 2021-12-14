@@ -1,7 +1,7 @@
-<!--検索フォーム-->
+<h4>検索フォーム</h4>
 <%= form_tag(search_path, method: :get) do %>
-  <%= text_field_tag 'content' %>
-  <%= select_tag 'model', options_for_select({"投稿（タイトル）" => "post", "ユーザー" => "user"}) %>
-  <%= select_tag 'method',options_for_select({"部分一致" => "part", "完全一致" => "perfect"}) %>
-  <%= submit_tag '検索' %>
+  <%= text_field_tag 'content' %><br />
+  <%= select_tag 'model', options_for_select({"投稿（タイトル）" => "post", "ユーザー" => "user"}) %><br />
+  <%= select_tag 'method',options_for_select({"部分一致" => "part", "完全一致" => "perfect"}) %><br />
+  <%= submit_tag '検索', class: "" %>
 <% end %>

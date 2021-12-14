@@ -1,15 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-10 col-lg-8 px-5 px-sm-0 mx-auto">
-      <h3>投稿一覧</h3>
-        <ul class="list-group">
-        <% @posts.each do |post| %>
-          <li class="list-group-item">
-            投稿者：<%= link_to post.user.name, user_path(post.user_id) %><br />
-            <%= link_to post.title, post_path(post.id) %><br />
-          </li>
-        <% end %>
-        </ul>
+    <div class="col-md-4">
+      <%= render 'searchs/search_form' %>
+    </div>
+    <div class="col-md-7 offset-md-1 mx-auto">
+      <h4>投稿一覧</h4>
+      <%= render 'posts/index', posts: @posts %>
     </div>
   </div>
 </div>
