@@ -22,9 +22,12 @@
       </div>
 
       <h5>コメント</h5>
+      <!--コメント一覧-->
       <dev id="post_show_comments_<%= @post.id %>">
-        <%= render 'post_comments/post_comment', post: @post, post_comment: @post_comment %>
+        <%= render 'post_comments/post_comment', post: @post %>
       </dev>
+      <!--コメント入力欄-->
+      <div><%= render 'post_comments/comment_form', post: @post, post_comment: @post_comment %></div>
     </div>
   </div>
 </div>
