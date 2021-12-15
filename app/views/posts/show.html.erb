@@ -16,12 +16,13 @@
     </div>
 
     <div class="col-md-4 offset-md-1">
+      <h5>いいね</h5>
       <div id="post_show_favorites_<%= @post.id %>">
-        <h5>いいね</h5>
         <%= render 'favorites/favorite', post: @post %>
       </div>
+
+      <h5>コメント</h5>
       <dev id="post_show_comments_<%= @post.id %>">
-        <h5>コメント</h5>
         <%= render 'post_comments/post_comment', post: @post, post_comment: @post_comment %>
       </dev>
     </div>
