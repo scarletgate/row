@@ -1,0 +1,3 @@
+<!--posts/showで指定したIDを部分的に更新-->
+$('#post_show_comments_<%= @post.id %>').html("<%= j(render 'post_comments/post_comment', post: @post) %>");
+$("textarea").val('')

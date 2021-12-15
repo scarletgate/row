@@ -1,2 +1,2 @@
-<!--posts/showで指定したIDのhtmlのみ部分的に更新-->
-$('#favorite_buttons_<%= @post.id %>').html("<%= j(render 'favorites/favorite', post: @post) %>");
+<!--posts/showで指定したIDを部分的に更新-->
+$('#post_show_favorites_<%= @post.id %>').html("<%= j(render 'favorites/favorite', post: @post) %>");
