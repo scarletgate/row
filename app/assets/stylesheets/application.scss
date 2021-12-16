@@ -17,9 +17,19 @@
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
 
+body {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
 header {
  width: 100%;
- height: 100px;
+ height: 50px;
  background-image: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%);
 }
 
