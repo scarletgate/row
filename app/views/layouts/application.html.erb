@@ -11,10 +11,12 @@
   </head>
 
   <body>
-    <!--renderでヘッダーを部分テンプレートで呼び出す-->
+    <!--ヘッダーを呼び出す-->
     <%= render 'layouts/header' %>
     <main>
       <%= yield %>
     </main>
+    <!--フッターを呼び出す-->
+    <%= render 'layouts/footer' %>
   </body>
 </html>

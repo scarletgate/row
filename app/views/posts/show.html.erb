@@ -3,7 +3,7 @@
     <div class="col-md-7">
       <h3>投稿詳細</h3>
         <h6><%= @post.title %></h6>
-        <!--ログインユーザーの投稿の場合、ボタンを表示-->
+        <!--現在ログイン中のユーザーの投稿の場合、ボタンを表示-->
         <% if @user == current_user %>
           <%= link_to "編集", edit_post_path(@post), class: "btn btn-info" %>
           <%= link_to "削除", post_path(@post),method: :delete, class: "btn btn-danger" %>
@@ -27,7 +27,9 @@
         <%= render 'post_comments/post_comment', post: @post %>
       </dev>
       <!--コメント入力欄-->
-      <div><%= render 'post_comments/comment_form', post: @post, post_comment: @post_comment %></div>
+      <div>
+        <%= render 'post_comments/comment_form', post: @post, post_comment: @post_comment %>
+      </div>
     </div>
   </div>
 </div>

@@ -2,16 +2,17 @@
   <div class="row">
     <div class="col-sm-12 col-md-10 col-lg-8 px-5 px-sm-0 mx-auto">
       <h4><%= @user.name %>さんのいいねした投稿</h4>
-      <% if @users.exists? %>
+      <!--@favoreites内のテーブルが空か確認-->
+      <% if @favorites.exists? %>
         <ul class="list-group">
-        <%# @users.each do |user| %>
+        <% @favorites.each do |favorite| %>
           <li class="list-group-item">
-            投稿者：<%#= link_to user.user.name, user_path(user.user_id) %><br />
-            <%#= link_to user.post.title, post_path(user.post_id) %><br />
-            いいね：<%#= user.post.favorites.count %>件　コメント：<%#= user.post.post_comments.count %>件<br />
-            <%#= user.post.created_at %>に投稿 &nbsp; <%#= user.post.updated_at %>に更新<br />
+            投稿者：<%= link_to favorite.post.user.name, user_path(favorite.post.user_id) %>
+            が<%= favorite.post.created_at %>に投稿 &nbsp; <%= favorite.post.updated_at %>に更新<br />
+            <%= link_to favorite.post.title, post_path(favorite.post_id) %><br />
+            いいね：<%= favorite.post.favorites.count %>件　コメント：<%= favorite.post.post_comments.count %>件<br />
           </li>
-        <%# end %>
+        <% end %>
         </ul>
       <% else %>
         <p>いいねした投稿はありません</p>

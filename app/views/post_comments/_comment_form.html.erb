@@ -1,5 +1,5 @@
 <!--コメント入力欄-->
-<%= form_with(model:[post, post_comment], local: true) do |f| %>
+<%= form_with(model:[post, post_comment], remote: true) do |f| %>
   <div><%= f.text_area :comment, cols:'40', rows:'4', placeholder: "コメント入力欄" %></div>
   <div><%= f.submit "コメントを送信", class: "btn btn-success" %></div>
 <% end %>

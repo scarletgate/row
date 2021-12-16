@@ -10,14 +10,14 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
-          <li class="nav-item"><%= link_to 'マイページ', user_path(current_user.id), class: 'nav-link text-dark' %></li>
-          <li class="nav-item"><%= link_to '投稿一覧', posts_path, class: 'nav-link text-dark' %></li>
-          <li class="nav-item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %></li>
+          <li class="nav-item"><%= link_to 'マイページ', user_path(current_user.id), class: 'fas fa-user nav-link text-dark' %></li>
+          <li class="nav-item"><%= link_to '投稿一覧', posts_path, class: 'fas fa-newspaper nav-link text-dark' %></li>
+          <li class="nav-item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link text-dark' %></li>
         <% else %>
-          <li class="nav-item"><%= link_to 'About', homes_about_path, class: 'nav-link text-dark' %></li>
-          <li class="nav-item"><%= link_to '投稿一覧', posts_path, class: 'nav-link text-dark' %></li>
-          <li class="nav-item"><%= link_to '新規登録', new_user_registration_path, class: 'nav-link text-dark' %></li>
-          <li class="nav-item"><%= link_to 'ログイン', new_user_session_path, class: 'nav-link text-dark' %></li>
+          <li class="nav-item"><%= link_to 'About', homes_about_path, class: 'fas fa-link nav-link text-dark' %></li>
+          <li class="nav-item"><%= link_to '投稿一覧', posts_path, class: 'fas fa-newspaper nav-link text-dark' %></li>
+          <li class="nav-item"><%= link_to '新規登録', new_user_registration_path, class: 'fas fa-user-plus nav-link text-dark' %></li>
+          <li class="nav-item"><%= link_to 'ログイン', new_user_session_path, class: 'fas fa-sign-in-alt nav-link text-dark' %></li>
         <% end %>
         </ul>
       </div>
