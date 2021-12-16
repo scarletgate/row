@@ -3,8 +3,13 @@
     <div class="col-md-8 mx-auto py-3">
       <h3>退会確認</h3>
       <p><strong>本当に退会しますか?</strong></p>
+      <p>
+        退会するとマイページの利用やいいね・コメントが出来なくなります。<br />
+        再度ご利用頂く場合には、新規登録のお手続きが必要になります。<br />
+        本当に退会してもよろしいですか？
+      </p>
       <%= link_to "退会しない", user_path(@user.id), class: "btn btn-secondary" %>
-      <%#= link_to "退会する", user_path(@user.id), class: "btn btn-danger" %>
+      <%#= link_to "退会する", withdrawal_path, method: :patch, data: { confilm: "本当に退会しますか？" }, class: "btn btn-danger" %>
     </div>
   </div>
 </div>

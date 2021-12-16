@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'homes/about' => 'homes#about'
   devise_for :users
-  resources :users, only: [:show, :edit, :update, :check, :withdraw] do
+  resources :users, only: [:show, :edit, :update, :check, :withdrawal] do
     resource :relationships, only: [:create, :destroy]
     get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'
