@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 py-3">
       <!--検索フォームを呼び出す-->
       <%= render 'searchs/search_form' %>
     </div>
-    <div class="col-md-7 offset-md-1 mx-auto">
+    <div class="col-md-7 offset-md-1 py-3 mx-auto">
       <h4>新着投稿</h4>
       <ul class="list-group">
         <% @posts.each do |post| %>
