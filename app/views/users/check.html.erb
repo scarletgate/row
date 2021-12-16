@@ -1,2 +1,10 @@
-<h1>Users#check</h1>
-<p>Find me in app/views/users/check.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mx-auto py-3">
+      <h3>退会確認</h3>
+      <p><strong>本当に退会しますか?</strong></p>
+      <%= link_to "退会しない", user_path(@user.id), class: "btn btn-secondary" %>
+      <%#= link_to "退会する", user_path(@user.id), class: "btn btn-danger" %>
+    </div>
+  </div>
+</div>

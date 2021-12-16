@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   end
 
   def check
+    @user = User.find(params[:id])
   end
 
   def withdraw
