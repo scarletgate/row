@@ -11,6 +11,11 @@
         <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
           <li class="nav-item"><%= link_to 'マイページ', user_path(current_user.id), class: 'fas fa-user nav-link text-dark' %></li>
+          <li class="notification"><%= link_to '通知', notifications_path, class: 'fas fa-bell nav-link text-dark'  %></li>
+            <% if unchecked_notifications.any? %>
+              <i class="fa fa-circle notification-circle"></i>
+            <% end %>
+
           <li class="nav-item"><%= link_to '投稿一覧', posts_path, class: 'fas fa-newspaper nav-link text-dark' %></li>
           <li class="nav-item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link text-dark' %></li>
         <% else %>

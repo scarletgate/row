@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-7">
+    <div class="col-md-7 py-3">
       <h3>投稿詳細</h3>
         <h6><%= @post.title %></h6>
         <!--現在ログイン中のユーザーの投稿の場合、ボタンを表示-->
@@ -15,7 +15,7 @@
         </div>
     </div>
 
-    <div class="col-md-4 offset-md-1">
+    <div class="col-md-4 offset-md-1 py-3">
       <h5>いいね</h5>
       <div id="post_show_favorites_<%= @post.id %>">
         <%= render 'favorites/favorite', post: @post %>

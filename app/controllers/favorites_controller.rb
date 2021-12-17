@@ -4,6 +4,7 @@ class FavoritesController < ApplicationController
     favorite = Favorite.new(post_id: @post.id) #post_idカラムに@post.idを入れた空のモデルをfavoriteに渡す。
     favorite.user_id = current_user.id #favoriteのuser_idカラムにログインユーザーのuser.idを渡す。
     favorite.save
+    @post.create_notification_favorite(current_user)
   end
 
   def destroy

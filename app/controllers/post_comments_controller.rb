@@ -5,6 +5,7 @@ class PostCommentsController < ApplicationController
     comment.user_id = current_user.id #commentのuser_idカラムにログインユーザーのuser.idを渡す。
     comment.post_id = @post.id #commentのpost_idカラムにコメントをしたpost.idを渡す。
     comment.save
+    @post.create_notification_comment(current_user)
   end
 
   def destroy

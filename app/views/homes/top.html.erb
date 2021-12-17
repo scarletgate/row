@@ -5,7 +5,7 @@
       <%= render 'searchs/search_form' %>
     </div>
     <div class="col-md-7 offset-md-1 py-3 mx-auto">
-      <h4>新着投稿</h4>
+      <h4>新着投稿<small>（<%= @posts.count %>件）</small></h4>
       <ul class="list-group">
         <% @posts.each do |post| %>
           <li class="list-group-item">
@@ -14,6 +14,9 @@
           </li>
         <% end %>
       </ul>
+      <div class="text-center pt-3">
+        <%=link_to "全ての投稿を見る", posts_path %>
+      </div>
     </div>
   </div>
 </div>

@@ -1,0 +1,12 @@
+<h3 class="text-center">通知</h3>
+<%#= link_to "全削除", destroy_all_users_notifications_path, method: :delete, class: "fas fa-trash" %>
+
+<%# notifications = @notifications.where.not(visitor_id: current_user.id) %>
+<% if @notifications.exists? %>
+  <div class="users-index">
+    <%= render @notifications, notifications: @notifications %>
+    <%= paginate @notifications %>
+  </div>
+<% else %>
+  <p>通知はありません</p>
+<% end %>

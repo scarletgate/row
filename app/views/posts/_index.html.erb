@@ -10,6 +10,9 @@
     </li>
   <% end %>
   </ul>
+  <div class="pt-3">
+    <%= paginate @posts %>
+  </div>
 <% else %>
   <p>投稿はありません</p>
 <% end %>
