@@ -13,15 +13,17 @@
     <tbody>
       <% users.each do |user| %>
       <tr>
-        <th><%= attachment_image_tag user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></th>
+        <th><%= attachment_image_tag user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg" %></th>
         <th><%= link_to user.name, user_path(user) %></th>
         <th>フォロー数：<%= user.followings.count %></th>
         <th>フォロワー数：<%= user.followers.count %></th>
         <th>
-          <% if current_user.following?(user) %>
-            <%= link_to "フォロー外す", user_relationships_path(user.id), class: "btn btn-primary", method: :delete %>
-          <% else %>
-            <%= link_to "フォローする", user_relationships_path(user.id), class: "btn btn-success", method: :post %>
+          <% if user_signed_in? %>
+            <% if current_user.following?(user) %>
+              <%= link_to "フォロー外す", user_relationships_path(user.id), class: "btn btn-primary", method: :delete %>
+            <% else %>
+              <%= link_to "フォローする", user_relationships_path(user.id), class: "btn btn-success", method: :post %>
+            <% end %>
           <% end %>
         </th>
       </tr>

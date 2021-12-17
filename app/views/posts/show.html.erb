@@ -16,20 +16,34 @@
     </div>
 
     <div class="col-md-4 offset-md-1 py-3">
-      <h5>いいね</h5>
-      <div id="post_show_favorites_<%= @post.id %>">
-        <%= render 'favorites/favorite', post: @post %>
-      </div>
+      <h5>【いいね】</h5>
+      <% if user_signed_in? %>
+        <div id="post_show_favorites_<%= @post.id %>">
+          <%= render 'favorites/favorite', post: @post %>
+        </div>
+      <% else %>
+        <h5>
+          ※ログイン後に<br />
+          &emsp;いいねが出来ます。
+        </h5>
+      <% end %>
 
-      <h5>コメント</h5>
+      <h5 class="pt-3">【コメント】</h5>
       <!--コメント一覧-->
       <dev id="post_show_comments_<%= @post.id %>">
         <%= render 'post_comments/post_comment', post: @post %>
       </dev>
-      <!--コメント入力欄-->
-      <div>
-        <%= render 'post_comments/comment_form', post: @post, post_comment: @post_comment %>
-      </div>
+      <% if user_signed_in? %>
+        <!--コメント入力欄-->
+        <div>
+          <%= render 'post_comments/comment_form', post: @post, post_comment: @post_comment %>
+        </div>
+      <% else %>
+        <h5>
+          ※ログイン後に<br />
+          &emsp;コメントが可能になります。
+        </h5>
+      <% end %>
     </div>
   </div>
 </div>

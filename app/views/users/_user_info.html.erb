@@ -24,12 +24,14 @@
     </tr>
   </tbody>
 </table>
-<% if user == current_user %>
-  <%= link_to "プロフィールを編集する", edit_user_path(user), class: "btn btn-secondary" %>
-<% else %>
-  <% if current_user.following?(user) %>
-    <%= link_to "フォロー外す", user_relationships_path(user.id), class: "btn btn-primary", method: :delete %>
+<% if user_signed_in? %>
+  <% if user == current_user %>
+    <%= link_to "プロフィールを編集する", edit_user_path(user), class: "btn btn-secondary" %>
   <% else %>
-    <%= link_to "フォローする", user_relationships_path(user.id), class: "btn btn-success", method: :post %>
+    <% if current_user.following?(user) %>
+      <%= link_to "フォロー外す", user_relationships_path(user.id), class: "btn btn-primary", method: :delete %>
+    <% else %>
+      <%= link_to "フォローする", user_relationships_path(user.id), class: "btn btn-success", method: :post %>
+    <% end %>
   <% end %>
 <% end %>
