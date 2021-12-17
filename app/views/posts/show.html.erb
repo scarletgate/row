@@ -11,7 +11,7 @@
         <p>投稿者：<%= link_to @user.name, user_path(@user.id) %></p>
         <%= @post.created_at %>に投稿 &nbsp; <%= @post.updated_at %>に更新<br />
         <div>
-          <%= @post.content %>
+          <%= safe_join(@post.content.split("\n"),tag(:br)) %>
         </div>
     </div>
 

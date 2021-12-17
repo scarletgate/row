@@ -1,30 +1,37 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-      <h1>投稿編集</h1>
+    <div class="col-sm-12 col-md-10 col-lg-7 px-5 px-sm-0 mx-auto">
+      <h3>投稿編集</h3>
       <%= form_with model: @post, local:true do |f| %>
-        <div class="form-group">
-          <%= f.label :title, "タイトル" %>
-          <%= f.text_field :title %>
+         <div class="actions text-right">
+          <%= f.submit '更新', class: "btn btn-success" %>
+          <%= link_to "更新せず戻る", post_path(@post.id), class: "btn btn-secondary" %>
+          <%= link_to "削除", post_path(@post),method: :delete, class: "btn btn-danger" %>
         </div>
+
         <div class="form-group">
-          <%= f.label :content, "投稿内容" %>
-          <%= f.text_field :content %>
-        </div>
-        <div class="form-group">
-          <%= f.label :post_image, "投稿画像" %>
-          <%= f.attachment_field :post_image %>
-        </div>
-        <div class="form-group">
+          <%= f.label :is_shered, "共有設定" %><br />
           <%= f.radio_button :is_shered, false %>
           <%= f.label :is_shered, '他のユーザーへ公開しない', value: false %>
           <%= f.radio_button :is_shered, true %>
           <%= f.label :is_shered, '公開する', value: true %>
         </div>
 
-        <%= f.submit '更新', class: "btn btn-success" %>
-        <%= link_to "更新せず戻る", post_path(@post.id), class: "btn btn-secondary" %>
-        <%= link_to "削除", post_path(@post),method: :delete, class: "btn btn-danger" %>
+        <div class="form-group">
+          <%= f.label :post_image, "投稿画像" %>
+          <%= f.attachment_field :post_image %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :title, "タイトル" %><br />
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :content, "投稿内容" %><br />
+          <%= f.text_area :content, cols: 100, rows: 100, class: "form-control" %>
+        </div>
+
       <% end %>
     </div>
   </div>
