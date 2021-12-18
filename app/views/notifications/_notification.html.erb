@@ -1,15 +1,13 @@
 <% visiter = notification.visiter %>
 <% post = notification.post %>
 
-<div class="col-md-6 mx-auto">
-  <div class="form-inline">
-    <%= link_to user_path(notification.visiter) do %>
-      <%#= attachment_image_tag  notifications_path, :profile_image, :fill, 100, 100 %>
-    <% end %>
-    <%== notification_form(notification) %><span class="moderate-font"><%= " (#{time_ago_in_words(notification.created_at)}前)" %></span>
-    <br />
-    <% if !@comment.nil? %>
-      <p class="moderate-font"><%= @comment %></p>
-    <% end %>
-  </div>
+<div class="list-group-item clearfix ">
+  <%#= link_to user_path(notification.visiter) do %>
+    <%#=  image_tag notification.visiter.image[:small].url, class:"user-thumb", style:"width: 60px;"%>
+  <%# end %>
+  <%== notification_form(notification) %><span><%= " (#{time_ago_in_words(notification.created_at)}前)" %></span>
+  <br>
+  <% if !@comment.nil? %>
+    <p class="moderate-font"><%= @comment %></p>
+  <% end %>
 </div>

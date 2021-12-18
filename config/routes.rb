@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   end
   get '/search' => 'searchs#search'
   resources :notifications, only: [:index]
+  delete 'notifications' => 'notifications#destroy_all'
 
 end
