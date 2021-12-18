@@ -2,10 +2,9 @@
 <% post = notification.post %>
 
 <div class="list-group-item clearfix ">
-  <%#= link_to user_path(notification.visiter) do %>
-    <%#=  image_tag notification.visiter.image[:small].url, class:"user-thumb", style:"width: 60px;"%>
-  <%# end %>
-  <%== notification_form(notification) %><span><%= " (#{time_ago_in_words(notification.created_at)}前)" %></span>
+  <%#= attachment_image_tag notification.visiter.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+  <!--notifications_helper.rbを呼び出している-->
+  <%== notification_form(notification) %> &emsp; <span>(<%= notification.created_at %>)</span>
   <br>
   <% if !@comment.nil? %>
     <p class="moderate-font"><%= @comment %></p>

@@ -1,17 +1,21 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-6 px-5 px-sm-0 mx-auto">
+    <div class="col-sm-12 col-md-10 col-lg-8 px-5 px-sm-0 mx-auto">
       <h3>通知一覧</h3>
       <%= link_to "全削除", notifications_path, method: :delete, class: "fas fa-trash" %>
 
       <%# notifications = @notifications.where.not(visitor_id: current_user.id) %>
       <% if @notifications.exists? %>
         <div class="list-group">
-          <%= render @notifications %>
+          <%= render @notifications %><!--直下コメントアウト部分の省略形-->
+          <%# @notifications.each do |notifications| %>
+          　<!--部分テンプレート（パーシャル）を呼び出す-->
+            <%#= render partial: 'notification', locals: {notification: notification} %>
+          <%# end %>
           <%= paginate @notifications %>
         </div>
       <% else %>
-        <p>通知はありません</p>
+        <h4 class="text-center py-3">通知はありません</h4>
       <% end %>
     </div>
   </div>

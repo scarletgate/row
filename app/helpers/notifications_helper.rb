@@ -10,7 +10,7 @@ module NotificationsHelper
     case notification.action
       when "follow" then
         "#{visiter}があなたをフォローしました"
-      when "like" then
+      when "favorite" then
         "#{visiter}が#{your_post}にいいね！しました"
       when "comment" then
         @post_comment = PostComment.find_by(id:notification.post_comment_id)&.content

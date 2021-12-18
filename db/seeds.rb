@@ -7,8 +7,31 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create!(
-  email: 'test@test.test',
-  name: '荒井祐太郎',
-  password: 'password',
-  is_deleted: 'false',
+  [
+    {
+      email: 'aaa@test.test',
+      name: 'テストユーザー１',
+      password: 'password',
+      is_deleted: 'false',
+    },
+    {
+      email: 'bbb@test.test',
+      name: 'テストユーザー２',
+      password: 'password',
+      is_deleted: 'false',
+    },
+    {
+      email: 'ccc@test.test',
+      name: 'テストユーザー３',
+      password: 'password',
+      is_deleted: 'false',
+    },
+    {
+      email: 'ddd@test.test',
+      name: 'テストユーザー４テストユーザー４',
+      password: 'password',
+      is_deleted: 'false',
+    }
+  ]
+
 )
