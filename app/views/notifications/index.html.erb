@@ -1,10 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-10 col-lg-8 px-5 px-sm-0 mx-auto">
+    <div class="col-sm-12 col-md-10 col-lg-8 py-3 px-5 px-sm-0 mx-auto">
       <h3>通知一覧</h3>
-      <%= link_to "全削除", notifications_path, method: :delete, class: "fas fa-trash" %>
+      <div class="text-right">
+        <%= link_to "全て削除", notifications_path, method: :delete, class: "fas fa-trash text-danger" %>
+      </div>
 
-      <%# notifications = @notifications.where.not(visitor_id: current_user.id) %>
       <% if @notifications.exists? %>
         <div class="list-group">
           <%= render @notifications %><!--直下コメントアウト部分の省略形-->

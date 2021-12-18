@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-7 py-3">
       <h3>投稿詳細</h3>
-        <h6><%= @post.title %></h6>
+        <h5 class="py-2"><strong><%= @post.title %></strong></h5>
         <!--現在ログイン中のユーザーの投稿の場合、ボタンを表示-->
         <% if @user == current_user %>
           <%= link_to "編集", edit_post_path(@post), class: "btn btn-info" %>
