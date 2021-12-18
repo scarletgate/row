@@ -2,17 +2,21 @@
   <div class="row">
     <div class="col-md-7 py-3">
       <h3>投稿詳細</h3>
-        <h5 class="py-2"><strong><%= @post.title %></strong></h5>
-        <!--現在ログイン中のユーザーの投稿の場合、ボタンを表示-->
-        <% if @user == current_user %>
-          <%= link_to "編集", edit_post_path(@post), class: "btn btn-info" %>
-          <%= link_to "削除", post_path(@post),method: :delete, class: "btn btn-danger" %>
-        <% end %>
+      <p>この投稿は共有されています。</p>
+      <h5 class="pt-2"><strong><%= @post.title %></strong></h5>
+      <!--現在ログイン中のユーザーの投稿の場合、ボタンを表示-->
+      <% if @user == current_user %>
+        <%= link_to "編集", edit_post_path(@post), class: "btn btn-info" %>
+        <%= link_to "削除", post_path(@post),method: :delete, class: "btn btn-danger" %>
+      <% end %>
+      <div>
         <p>投稿者：<%= link_to @user.name, user_path(@user.id) %></p>
-        <%= @post.created_at %>に投稿 &nbsp; <%= @post.updated_at %>に更新<br />
-        <div>
-          <%= safe_join(@post.content.split("\n"),tag(:br)) %>
-        </div>
+        <%= l @post.created_at, format: :default %>に投稿<br />
+        <%= l @post.updated_at, format: :default %>に更新<br />
+      </div>
+      <div class="pt-3 border-top">
+        <%= safe_join(@post.content.split("\n"),tag(:br)) %>
+      </div>
     </div>
 
     <div class="col-md-4 offset-md-1 py-3">

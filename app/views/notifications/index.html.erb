@@ -3,7 +3,7 @@
     <div class="col-sm-12 col-md-10 col-lg-8 py-3 px-5 px-sm-0 mx-auto">
       <h3>通知一覧</h3>
       <div class="text-right">
-        <%= link_to "全て削除", notifications_path, method: :delete, class: "fas fa-trash text-danger" %>
+        <%= link_to "全て削除", notifications_path, method: :delete, class: "fas fa-trash btn btn-outline-danger" %>
       </div>
 
       <% if @notifications.exists? %>
