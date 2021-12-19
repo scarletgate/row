@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class="col-6 mx-auto py-3">
+    <div class="col-md-7 mx-auto py-3">
       <h3 class="pb-3">新規投稿フォーム</h3>
 
       <%= form_with model: @post, local:true do |f| %>
         <div class="form-group">
-          <%= f.label :is_shered, "共有設定" %><br />
+          【<%= f.label :is_shered, "共有設定" %>】<br />
           <%= f.radio_button :is_shered, false %>
           <%= f.label :is_shered, '他のユーザーへ公開しない', value: false %>
           &emsp;
@@ -14,22 +14,31 @@
         </div>
 
         <div class="form-group">
-          <%= f.label :title, "タイトル" %><br />
+          【<%= f.label :title, "タイトル" %>】<br />
           <%= f.text_field :title, class: "form-control" %>
         </div>
 
         <div class="form-group">
-          <%= f.label :post_image, "画像" %><br />
+          【<%= f.label :tag_name, "タグ" %>】<br />
+          <p>
+            半角スペースを入力する事で複数のタグを付けることができます。<br />
+            例：Windows Office Excel
+          </p>
+          <%= f.text_field :tag_name, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          【<%= f.label :post_image, "画像" %>】<br />
           <%= f.attachment_field :post_image %>
         </div>
 
         <div class="form-group">
-          <%= f.label :content, "投稿内容" %><br />
-          <%= f.text_area :content, class: "form-control" %>
+          【<%= f.label :content, "投稿内容" %>】<br />
+          <%= f.text_area :content, cols: 100, rows: 100, class: "form-control" %>
         </div>
 
         <div class="actions text-center">
-          <%= f.submit '投稿', class: "btn btn-success" %>
+          <%= f.submit '投稿', class: "btn btn-success btn-block" %>
         </div>
       <% end %>
     </div>

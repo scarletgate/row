@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-4 py-3">
+    <div class="col-md-3 py-3">
       <!--検索フォームを呼び出す-->
       <%= render 'searchs/search_form' %>
     </div>
-    <div class="col-md-7 offset-md-1 py-3 mx-auto">
+    <div class="col-md-6 offset-md-1 py-3 mx-auto">
       <h4>新着投稿<small>（<%= @posts.count %>件）</small></h4>
       <ul class="list-group">
         <% @posts.each do |post| %>
@@ -16,6 +16,15 @@
       </ul>
       <div class="text-center pt-3">
         <%=link_to "全ての投稿を見る", posts_path %>
+      </div>
+    </div>
+    <div class="col-md-3 py-3">
+      <h4>タグ</h4>
+      <div class="boder">
+        <% @tag_list.each do |tag|%>
+          <%= link_to tag.tag_name, root_path %>
+          <%= tag.post.count %>
+        <% end %>
       </div>
     </div>
   </div>
