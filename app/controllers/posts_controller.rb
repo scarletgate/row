@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def new
     @post = Post.new
+    @tag_lists = Tag.all
   end
 
   def create
@@ -30,6 +31,7 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
     @tag_list = @post.tags.pluck(:tag_name).join(' ')
+    @tag_lists = Tag.all
   end
 
   def update

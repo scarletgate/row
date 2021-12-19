@@ -19,13 +19,7 @@
       </div>
     </div>
     <div class="col-md-3 py-3">
-      <h4>タグ</h4>
-      <div class="boder">
-        <% @tag_list.each do |tag|%>
-          <%= link_to tag.tag_name, root_path %>
-          <%= tag.post.count %>
-        <% end %>
-      </div>
+      <%= render 'tag_list', tag_lists: @tag_lists %>
     </div>
   </div>
 </div>

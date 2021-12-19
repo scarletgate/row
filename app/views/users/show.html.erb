@@ -10,8 +10,8 @@
         <% @posts.each do |post| %>
           <li class="list-group-item">
             <%= link_to post.title, post_path(post.id) %><br />
+            <%= l post.created_at, format: :long %>に投稿 &nbsp; <%= l post.updated_at, format: :long %>に更新<br />
             いいね：<%= post.favorites.count %>件　コメント：<%= post.post_comments.count %>件<br />
-            <%= post.created_at %>に投稿 &nbsp; <%= post.updated_at %>に更新<br />
           </li>
         <% end %>
         </ul>

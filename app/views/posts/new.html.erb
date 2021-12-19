@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-7 mx-auto py-3">
+    <div class="col-md-8 mx-auto py-3">
       <h3 class="pb-3">新規投稿フォーム</h3>
 
       <%= form_with model: @post, local:true do |f| %>
@@ -41,6 +41,9 @@
           <%= f.submit '投稿', class: "btn btn-success btn-block" %>
         </div>
       <% end %>
+    </div>
+    <div class="col-md-3 py-3">
+      <%= render 'homes/tag_list', tag_lists: @tag_lists %>
     </div>
   </div>
 </div>

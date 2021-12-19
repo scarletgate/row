@@ -1,0 +1,10 @@
+<h4>タグ一覧<small>（<%= tag_lists.count %>件）</small></h4>
+<ul>
+  <% tag_lists.each do |tag|%>
+    <li>
+      <%#= link_to root_path do %>
+        <%= tag.tag_name %>：<%= tag.post.count %>件<br />
+      <%# end %>
+    </li>
+  <% end %>
+</ul>

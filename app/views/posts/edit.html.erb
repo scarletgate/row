@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-7 col-lg-7 py-3 px-5 px-sm-0 mx-auto">
+    <div class="col-sm-12 col-md-8 col-lg-7 py-3 px-5 px-sm-0 mx-auto">
       <h3>投稿編集</h3>
       <%= form_with model: @post, local:true do |f| %>
          <div class="actions text-right">
@@ -25,7 +25,7 @@
         <div class="form-group">
           【<%= f.label :tag_name, "タグ" %>】<br />
           <p>
-            スペースを入力する事で複数のタグを付けることができます。<br />
+            半角スペースを入力する事で複数のタグを付けることができます。<br />
             例：Windows Office Excel
           </p>
           <%= f.text_field :tag_name, value: @tag_list, class: "form-control" %>
@@ -41,6 +41,9 @@
           <%= f.text_area :content, cols: 100, rows: 100, class: "form-control" %>
         </div>
       <% end %>
+    </div>
+    <div class="col-md-3 py-3">
+      <%= render 'homes/tag_list', tag_lists: @tag_lists %>
     </div>
   </div>
 </div>
