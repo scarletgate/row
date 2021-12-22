@@ -20,6 +20,11 @@ class User < ApplicationRecord
   has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
   attachment :profile_image
 
+  validates :name,
+    presence: true,
+    uniqueness: true,
+    length: { maximum: 20 }
+
   #フォローする
   def follow(user_id)
     relationships.create(followed_id: user_id)

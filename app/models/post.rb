@@ -7,6 +7,12 @@ class Post < ApplicationRecord
   has_many :tags, through: :tag_maps
   attachment :post_image
 
+  validates :title,
+    presence: true,
+    length: { maximum: 30 }
+  validates :content, presence: true
+  validates :is_shered, presence: true
+
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
