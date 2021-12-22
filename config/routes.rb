@@ -17,5 +17,9 @@ Rails.application.routes.draw do
   get '/search' => 'searchs#search'
   resources :notifications, only: [:index]
   delete 'notifications' => 'notifications#destroy_all'
+  resources :inquiries, only: [:new, :create]
+  post 'inquiries/confirm' => 'inquiries#confirm', as: 'confirm'
+  post 'inquiries/back' => 'inquiries#back', as: 'back'
+  get 'inquiries/done' => 'inquiries#done', as: 'done'
 
 end

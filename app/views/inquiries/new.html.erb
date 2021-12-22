@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mx-auto py-3">
+      <h3 class="pb-3">お問い合わせフォーム</h3>
+
+      <%= form_with model: @inquiry, url: confirm_path, local:true do |f| %>
+        <div class="form-group">
+          【<%= f.label :name, "名前" %>】<br />
+          <%= f.text_field :name, autofocus: true, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          【<%= f.label :email, "メールアドレス" %>】<br />
+          <%= f.email_field :email, autocomplete: "email", class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          【<%= f.label :subject, "件名" %>】
+          <!--エラー修正中-->
+          <%#= f.select :subject, @inquiry.subject.keys.map{|k| [I18n.t("enums.inquiry.subject.#{k}"), k]}, class: 'form-control' %>
+          <%= f.select :subject, [["ユーザーに関するお問い合わせ", "inquiries_about_users"], ["投稿に関するお問い合わせ", "inquiries_about_posting"], ["その他のお問合せ", "other_inquiries"]] %>
+        </div>
+
+        <div class="form-group">
+          【<%= f.label :message, "お問い合わせ内容" %>】<br />
+          <%= f.text_area :message, rows: 10, class: "form-control" %>
+        </div>
+
+        <div class="actions text-center">
+          <%= f.submit '入力内容確認', class: "btn btn-success btn-block" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

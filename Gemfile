@@ -71,7 +71,7 @@ gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.13'
 gem 'dotenv-rails'
-gem 'dotenv-rails'
+gem "enum_help"
 group :production do
   gem 'mysql2'
 end

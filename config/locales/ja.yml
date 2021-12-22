@@ -205,3 +205,9 @@ ja:
       long: "%Y年%m月%d日 %H時%M分"
       short: "%m月%d日 %H時%M分"
     pm: 午後
+  enums:
+    inquiry:
+      subject:
+        inquiries_about_users: "ユーザーに関するお問い合わせ"
+        inquiries_about_posting: "投稿に関するお問い合わせ"
+        other_inquiries: "その他のお問い合わせ"
