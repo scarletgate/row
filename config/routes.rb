@@ -21,5 +21,4 @@ Rails.application.routes.draw do
   post 'inquiries/confirm' => 'inquiries#confirm', as: 'confirm'
   post 'inquiries/back' => 'inquiries#back', as: 'back'
   get 'inquiries/done' => 'inquiries#done', as: 'done'
-
 end

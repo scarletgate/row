@@ -1,0 +1,18 @@
+inherit_from:
+  - .rubocop_airbnb.yml
+
+# 文字数の上限を変更
+LineLength:
+  Max: 150
+
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'bin/*'
+    - 'config/environments/*'
+    - 'config/application.rb'
+    - 'config/initializers/*'
+    - 'config/spring.rb'
+    - 'lib/tasks/*'
+    - 'vendor/**/*'
+    - 'path/ruby'

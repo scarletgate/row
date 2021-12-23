@@ -1,6 +1,6 @@
 class InquiriesController < ApplicationController
   def new
-    @inquiry =  Inquiry.new
+    @inquiry = Inquiry.new
   end
 
   def confirm
@@ -29,6 +29,7 @@ class InquiriesController < ApplicationController
   end
 
   private
+
   def inquiry_params
     params.require(:inquiry).permit(:name, :email, :subject, :message)
   end
