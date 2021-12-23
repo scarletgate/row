@@ -39,19 +39,17 @@ class Post < ApplicationRecord
 
   # タグの作成
   def create_tag(sent_tags)
-    current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?
-      # unless self.tags.blank?
-      # current_tags = self.tags.pluck(:tag_name)
-      # 登録タグから送信されてきたタグを除き、すでに登録されていたタグを抽出
-      old_tags = current_tags - sent_tags
-      # 送信されてきたタグから現在存在するタグを除き、新たに登録するタグを抽出
-      new_tags = sent_tags - current_tags
-      old_tags.each do |old|
-        self.post_tag.delete Tag.find_by(tag_name: old)
-      end
-      new_tags.each do |new|
-        new_post_tag = Tag.find_or_create_by(tag_name: new)
-        self.tags << new_post_tag
-      end
+    current_tags = tags.pluck(:tag_name) unless tags.nil?
+    # 登録タグから送信されてきたタグを除き、すでに登録されていたタグを抽出
+    old_tags = current_tags - sent_tags
+    # 送信されてきたタグから現在存在するタグを除き、新たに登録するタグを抽出
+    new_tags = sent_tags - current_tags
+    old_tags.each do |old|
+      post_tag.delete Tag.find_by(tag_name: old)
+    end
+    new_tags.each do |new|
+      new_post_tag = Tag.find_or_create_by(tag_name: new)
+      tags << new_post_tag
+    end
   end
 end

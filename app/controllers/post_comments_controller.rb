@@ -4,8 +4,12 @@ class PostCommentsController < ApplicationController
     comment = PostComment.new(post_comment_params) # commentカラム空のモデルをcommentに渡す。
     comment.user_id = current_user.id # commentのuser_idカラムにログインユーザーのuser.idを渡す。
     comment.post_id = @post.id # commentのpost_idカラムにコメントをしたpost.idを渡す。
-    comment.save
-    @post.create_notification_comment(current_user)
+    if comment.save
+      @post.create_notification_comment(current_user)
+    else
+      @error_comment = comment
+      render template: "post/show"
+    end
   end
 
   def destroy

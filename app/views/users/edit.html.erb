@@ -3,21 +3,32 @@
     <div class="col-6 mx-auto py-3">
       <h3 class="pb-3">会員情報編集</h3>
 
+      <div id="error_explanation">
+        <% if @user.errors.any? %>
+          <%= @user.errors.count %>件のエラーが発生しました。<br />
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %><br /></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+
       <%= form_with model: @user, local:true do |f| %>
         <div class="form-group">
-          <%= f.label :name, "ニックネーム" %><br />
+          <%= f.label :name, "【ニックネーム】" %><br />
           <%= f.text_field :name, autofocus: true, class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.label :introduction, "自己紹介" %><br />
+          <%= f.label :introduction, "【自己紹介】" %><br />
           <%= f.text_area :introduction, autocomplete: "自己紹介を記入出来ます。", class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.label :profile_image, "プロフィール画像" %><br />
+          <%= f.label :profile_image, "【プロフィール画像】" %><br />
           <%= f.attachment_field :profile_image %>
         </div>
         <div class="actions text-center">
-          <%= f.submit '更新', class: "btn btn-success" %>
+          <%= f.submit '更新', class: "btn btn-success btn-block" %>
           <!--退会機能を論理削除で実装予定-->
           <%#= link_to "退会する", check_user_path, class: "btn btn-danger" %>
         </div>

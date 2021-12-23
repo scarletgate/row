@@ -3,23 +3,33 @@
     <div class="col-md-8 mx-auto py-3">
       <h3 class="pb-3">新規投稿フォーム</h3>
 
+      <div id="error_explanation">
+        <% if @post.errors.any? %>
+          <%= @post.errors.count %>件のエラーが発生しました。<br />
+          <ul>
+            <% @post.errors.full_messages.each do |message| %>
+              <li><%= message %><br /></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+
       <%= form_with model: @post, local:true do |f| %>
         <div class="form-group">
-          【<%= f.label :is_shered, "共有設定" %>】<br />
+          <%= f.label :is_shered, "【共有設定】" %><br />
           <%= f.radio_button :is_shered, false %>
           <%= f.label :is_shered, '他のユーザーへ公開しない', value: false %>
-          &emsp;
           <%= f.radio_button :is_shered, true %>
           <%= f.label :is_shered, '公開する', value: true %>
         </div>
 
         <div class="form-group">
-          【<%= f.label :title, "タイトル" %>】<br />
+          <%= f.label :title, "【タイトル】" %><br />
           <%= f.text_field :title, class: "form-control" %>
         </div>
 
         <div class="form-group">
-          【<%= f.label :tag_name, "タグ" %>】<br />
+          <%= f.label :tag_name, "【タグ】" %><br />
           <p>
             半角スペースを入力する事で複数のタグを付けることができます。<br />
             例：Windows Office Excel
@@ -28,12 +38,12 @@
         </div>
 
         <div class="form-group">
-          【<%= f.label :post_image, "画像" %>】<br />
+          <%= f.label :post_image, "【画像】" %><br />
           <%= f.attachment_field :post_image %>
         </div>
 
         <div class="form-group">
-          【<%= f.label :content, "投稿内容" %>】<br />
+          <%= f.label :content, "【投稿内容】" %><br />
           <%= f.text_area :content, cols: 100, rows: 100, class: "form-control" %>
         </div>
 

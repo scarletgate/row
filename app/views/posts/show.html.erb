@@ -32,6 +32,11 @@
       <% end %>
 
       <h5 class="pt-3">【コメント】</h5>
+      <div id="error_explanation">
+        <% if @error_comment.present? %>
+          <%= @error_comment.errors.full_messages %><br />
+        <% end %>
+      </div>
       <!--コメント一覧-->
       <dev id="post_show_comments_<%= @post.id %>">
         <%= render 'post_comments/post_comment', post: @post %>

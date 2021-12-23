@@ -12,7 +12,8 @@ class PostsController < ApplicationController
       @post.create_tag(tag_list)
       redirect_to post_path(@post.id)
     else
-      redirect_to post_path(@post.id)
+      @tag_lists = Tag.all
+      render :new
     end
   end
 
@@ -40,6 +41,9 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       @post.create_tag(tag_list)
       redirect_to post_path(@post.id)
+    else
+      @tag_lists = Tag.all
+      render :edit
     end
   end
 
