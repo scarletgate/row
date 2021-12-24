@@ -1,3 +1,15 @@
-<footer class="text-center py-3">
-  <p>©  ROW(Record of Office Work)</p>
+<footer>
+  <div class="container">
+    <div class="row mx-auto">
+      <div class="col-md-6">
+        <ul>
+          <li class="pt-1"><%= link_to 'About', homes_about_path, class: 'text-dark' %></li>
+          <li class="py-1"><%= link_to 'お問い合わせ', new_inquiry_path, class: 'text-dark' %></li>
+        </ul>
+      </div>
+      <div class="col-md-6 pt-4 text-right">
+        <p>©  ROW(Record of Office Work)</p>
+      </div>
+    </div>
+  </div>
 </footer>

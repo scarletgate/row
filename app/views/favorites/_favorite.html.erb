@@ -1,7 +1,7 @@
 <% if post.favorited_by?(current_user) %>
-  <p><%= post.favorites.count %>件</p>
+  &emsp; <%= post.favorites.count %>件 &emsp;&emsp;
   <%= link_to "♥いいね解除する", post_favorite_path(post.id, post.favorites.find_by(user_id: current_user.id)), method: :delete, remote: true %>
 <% else %>
-  <p><%= post.favorites.count %>件</p>
+  &emsp; <%= post.favorites.count %>件 &emsp;&emsp;
   <%= link_to "♡いいね登録する", post_favorites_path(post.id), method: :post, remote: true %>
 <% end %>

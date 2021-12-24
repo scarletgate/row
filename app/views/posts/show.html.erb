@@ -14,7 +14,8 @@
         <%= l @post.created_at, format: :default %>に投稿 &emsp;&emsp; <%= l @post.updated_at, format: :default %>に更新<br />
       </div>
       <div class="pt-3 border-top">
-        <%= safe_join(@post.content.split("\n"),tag(:br)) %>
+        <%= safe_join(@post.content.split("\n"),tag(:br)) %><br />
+        <%= attachment_image_tag @post, :post_image, :fill, 800, 540 %>
       </div>
     </div>
 
