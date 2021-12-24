@@ -1,3 +1,4 @@
+<p class="text-center" id="notice"><%= notice %></p>
 <div class="container">
   <div class="row">
     <div class="col-md-4 py-3">
@@ -11,10 +12,12 @@
           <li class="list-group-item">
             <strong><%= link_to post.title, post_path(post.id) %></strong><br />
             <%= l post.created_at, format: :long %>に投稿 &nbsp; <%= l post.updated_at, format: :long %>に更新<br />
-            <% if post.is_shered == true %>
-              <div class="btn btn-success">共有中</div>
-            <% else %>
-              <div class="btn btn-danger">未共有</div>
+            <% if @user == current_user %>
+              <% if post.is_shered == true %>
+                <div class="btn btn-success">共有中</div>
+              <% else %>
+                <div class="btn btn-danger">未共有</div>
+              <% end %>
             <% end %>
             いいね：<%= post.favorites.count %>件　コメント：<%= post.post_comments.count %>件
           </li>

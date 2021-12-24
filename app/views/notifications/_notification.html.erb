@@ -2,11 +2,11 @@
 <% post = notification.post %>
 
 <div class="list-group-item clearfix ">
-  <%#= attachment_image_tag notification.visiter.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+  <%#= attachment_image_tag notification.visiter.user, :profile_image, fallback: "no_image.jpg", size: '40x40' %>
   <!--notifications_helper.rbを呼び出している-->
   <%== notification_form(notification) %> &emsp; <span>(<%= notification.created_at %>)</span>
   <br>
-  <% if !@comment.nil? %>
-    <p class="moderate-font"><%= @comment %></p>
-  <% end %>
+  <%# if !@comment.nil? %>
+    <p class="moderate-font"><%#= @comment %></p>
+  <%# end %>
 </div>

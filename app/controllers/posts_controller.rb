@@ -10,7 +10,7 @@ class PostsController < ApplicationController
     tag_list = params[:post][:tag_name].split(' ')
     if @post.save
       @post.create_tag(tag_list)
-      redirect_to post_path(@post.id)
+      redirect_to post_path(@post.id), notice: "投稿が作成されました。"
     else
       @tag_lists = Tag.all
       render :new
@@ -40,7 +40,7 @@ class PostsController < ApplicationController
     tag_list = params[:post][:tag_name].split(' ')
     if @post.update(post_params)
       @post.create_tag(tag_list)
-      redirect_to post_path(@post.id)
+      redirect_to post_path(@post.id), notice: "正常に更新されました。"
     else
       @tag_lists = Tag.all
       render :edit

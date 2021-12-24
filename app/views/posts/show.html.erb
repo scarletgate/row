@@ -1,3 +1,4 @@
+<p class="text-center" id="notice"><%= notice %></p>
 <div class="container">
   <div class="row">
     <div class="col-md-8 py-3">
@@ -13,11 +14,11 @@
           <% end %>
         </div>
         <%= link_to "編集", edit_post_path(@post), class: "btn btn-info" %>
-        <%= link_to "削除", post_path(@post),method: :delete, class: "btn btn-danger" %>
       <% end %>
       <div>
         投稿者：<%= link_to @user.name, user_path(@user.id) %><br />
         <%= l @post.created_at, format: :default %>に投稿 &emsp;&emsp; <%= l @post.updated_at, format: :default %>に更新<br />
+        タグ：
       </div>
       <div class="pt-3 border-top">
         <%= safe_join(@post.content.split("\n"),tag(:br)) %><br />
