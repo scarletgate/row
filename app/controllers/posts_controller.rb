@@ -18,7 +18,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.page(params[:page]).reverse_order
+    @posts = Post.page(params[:page]).where(is_shered: 'true').reverse_order
     @tag_list = Tag.all
   end
 

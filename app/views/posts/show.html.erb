@@ -2,10 +2,16 @@
   <div class="row">
     <div class="col-md-8 py-3">
       <h3>投稿詳細</h3>
-      <p>この投稿は共有されています。</p>
       <h5><strong><%= @post.title %></strong></h5>
       <!--現在ログイン中のユーザーの投稿の場合、ボタンを表示-->
       <% if @user == current_user %>
+        <div class="text-center py-2">
+          <% if @post.is_shered == true %>
+            <div class="post-shere">この投稿は共有中です。</div>
+          <% else %>
+            <div class="post-not-shere">この投稿は未共有です。</div>
+          <% end %>
+        </div>
         <%= link_to "編集", edit_post_path(@post), class: "btn btn-info" %>
         <%= link_to "削除", post_path(@post),method: :delete, class: "btn btn-danger" %>
       <% end %>

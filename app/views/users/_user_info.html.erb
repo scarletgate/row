@@ -2,27 +2,24 @@
 <div class="py-3">
   <%= attachment_image_tag user, :profile_image, :fill, 100, 100 %>
 </div>
+<div>
+  【ニックネーム】<%= user.name %><br />
+  【自己紹介】<br />
+  <%= safe_join(user.introduction.split("\n"),tag(:br)) %>
+</div>
 <table class="table">
   <tbody>
     <tr>
-      <th>ニックネーム</th>
-      <th><%= user.name %></th>
-    </tr>
-    <tr>
-      <th>自己紹介</th>
-      <th><%= user.introduction %></th>
-    </tr>
-    <tr>
       <th>フォロー</th>
-      <th><%= link_to user.followings.count, user_followings_path(user.id) %></th>
+      <th><%= link_to user.followings.count, user_followings_path(user.id) %>人</th>
     </tr>
     <tr>
       <th>フォロワー</th>
-      <th><%= link_to user.followers.count, user_followers_path(user.id) %></th>
+      <th><%= link_to user.followers.count, user_followers_path(user.id) %>人</th>
     </tr>
     <tr>
       <th>いいねした投稿</th>
-      <th><%= link_to favorite_posts.count, user_favorites_path(user.id) %></th>
+      <th><%= link_to favorite_posts.count, user_favorites_path(user.id) %>件</th>
     </tr>
   </tbody>
 </table>

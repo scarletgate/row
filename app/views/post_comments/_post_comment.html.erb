@@ -3,11 +3,11 @@
 <ul class="list-group">
 <% post.post_comments.each do |post_comment| %>
   <li class="list-group-item">
-    <%= post_comment.user.name %>
-    <%= post_comment.created_at.strftime('%Y/%m/%d') %><br />
+    <%= post_comment.user.name %>さんのコメント<br />
+    <%= l post_comment.created_at, format: :long %><br />
     &nbsp;<%= post_comment.comment %>
     <% if post_comment.user == current_user %>
-      <div><%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete, remote: true %></div>
+      <%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete, remote: true %>
     <% end %>
   </li>
 <% end %>

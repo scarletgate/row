@@ -11,7 +11,6 @@ class Post < ApplicationRecord
     presence: true,
     length: { maximum: 30 }
   validates :content, presence: true
-  validates :is_shered, presence: true
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
@@ -21,6 +20,7 @@ class Post < ApplicationRecord
   def create_notification_favorite(current_user)
     notification = current_user.active_notifications.new(post_id: id, visited_id: user_id, action: "favorite")
     # 自分の投稿に対する自分のいいねはcheckedをtrueに（通知済み）する
+
     if notification.visiter_id == notification.visited_id
       notification.checked = true
     end

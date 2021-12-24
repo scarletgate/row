@@ -25,7 +25,7 @@ body {
 
 main {
   flex: 1;
-  background-color: #E0FFFF;
+  background-color: #F0FFFF;
 }
 
 header {
@@ -46,4 +46,14 @@ footer {
 
 #notice {
  color: green;
+}
+
+.post-shere {
+ color: white;
+ background-color: green;
+}
+
+.post-not-shere {
+ color: white;
+ background-color: red;
 }

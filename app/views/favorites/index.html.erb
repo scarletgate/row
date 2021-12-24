@@ -4,12 +4,14 @@
       <h4><%= @user.name %>さんのいいねした投稿</h4>
       <!--@favoreites内のテーブルが空か確認-->
       <% if @favorites.exists? %>
+        <%#= render 'posts/index', posts: @favorites %>
         <ul class="list-group">
         <% @favorites.each do |favorite| %>
           <li class="list-group-item">
-            投稿者：<%= link_to favorite.post.user.name, user_path(favorite.post.user_id) %>
-            が<%= favorite.post.created_at %>に投稿 &nbsp; <%= favorite.post.updated_at %>に更新<br />
-            <%= link_to favorite.post.title, post_path(favorite.post_id) %><br />
+            <%= attachment_image_tag favorite.post.user, :profile_image, :fill, 20, 20, class: "rounded-circle" %>
+            <%= link_to favorite.post.user.name, user_path(favorite.post.user_id) %>さんが
+            <%= l favorite.post.created_at, format: :long %>に投稿<br />
+            <strong><%= link_to favorite.post.title, post_path(favorite.post.id) %></strong><br />
             いいね：<%= favorite.post.favorites.count %>件　コメント：<%= favorite.post.post_comments.count %>件<br />
           </li>
         <% end %>

@@ -3,7 +3,7 @@
     <div class="col-md-4 py-3">
       <%= render 'users/user_info', user: @user, favorite_posts: @favorite_posts %>
     </div>
-    <div class="col-md-7 offset-md-1 py-3">
+    <div class="col-md-8 py-3">
       <h4>投稿記事</h4>
       <%= link_to '新規投稿', new_post_path, class: 'btn btn-outline-info' %>
         <ul class="list-group">
@@ -11,7 +11,12 @@
           <li class="list-group-item">
             <strong><%= link_to post.title, post_path(post.id) %></strong><br />
             <%= l post.created_at, format: :long %>に投稿 &nbsp; <%= l post.updated_at, format: :long %>に更新<br />
-            いいね：<%= post.favorites.count %>件　コメント：<%= post.post_comments.count %>件<br />
+            <% if post.is_shered == true %>
+              <div class="btn btn-success">共有中</div>
+            <% else %>
+              <div class="btn btn-danger">未共有</div>
+            <% end %>
+            いいね：<%= post.favorites.count %>件　コメント：<%= post.post_comments.count %>件
           </li>
         <% end %>
         </ul>

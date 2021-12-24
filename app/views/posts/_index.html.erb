@@ -3,15 +3,16 @@
   <ul class="list-group">
   <% posts.each do |post| %>
     <li class="list-group-item">
+      <%= attachment_image_tag post.user, :profile_image, :fill, 20, 20, class: "rounded-circle" %>
       <%= link_to post.user.name, user_path(post.user_id) %>さんが
-      <%= l post.created_at, format: :long %>に投稿 &nbsp; <%= l post.updated_at, format: :long %>に更新<br />
+      <%= l post.created_at, format: :long %>に投稿<br />
       <strong><%= link_to post.title, post_path(post.id) %></strong><br />
       いいね：<%= post.favorites.count %>件　コメント：<%= post.post_comments.count %>件<br />
     </li>
   <% end %>
   </ul>
   <div class="pt-3">
-    <%#= paginate posts %>
+    <%= paginate posts %>
   </div>
 <% else %>
   <h4 class="text-center py-3">投稿はありません</h4>
