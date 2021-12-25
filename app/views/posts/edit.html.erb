@@ -18,7 +18,7 @@
       <%= form_with model: @post, local:true do |f| %>
         <div class="actions text-right">
           <%= f.submit '更新', class: "btn btn-success" %>
-          <%= link_to "更新せず戻る", post_path(@post.id), class: "btn btn-secondary" %>
+          <%= link_to "戻る", post_path(@post.id), class: "btn btn-secondary" %>
           <%= link_to "削除", post_path(@post),method: :delete, class: "btn btn-danger" %>
         </div>
         <div class="form-group">

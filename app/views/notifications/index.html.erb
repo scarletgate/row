@@ -13,7 +13,7 @@
           　<!--部分テンプレート（パーシャル）を呼び出す-->
             <%#= render partial: 'notification', locals: {notification: notification} %>
           <%# end %>
-          <%= paginate @notifications %>
+          <%#= paginate @notifications %>
         </div>
       <% else %>
         <h4 class="text-center py-3">通知はありません</h4>
