@@ -5,7 +5,7 @@
 <div>
   【ニックネーム】<%= user.name %><br />
   【自己紹介】<br />
-  <%= safe_join(user.introduction.split("\n"),tag(:br)) %>
+  <%= simple_format(user.introduction) %>
 </div>
 
 <table class="table">

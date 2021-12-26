@@ -8,12 +8,10 @@
         <h5>【検索対象】ユーザー</h5>
         <h5>【検索ワード】<%= @content %></h5>
         <%= render 'relationships/index', users: @records %>
-        <%= paginate @records %>
       <% else @model == 'post' %>
         <h5>【検索対象】投稿（タイトル）</h5>
         <h5>【検索ワード】<%= @content %></h5>
         <%= render 'posts/index', posts: @records %>
-        <%= paginate @records %>
       <% end %>
     </div>
   </div>
