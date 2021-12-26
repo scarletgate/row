@@ -9,7 +9,7 @@ class Post < ApplicationRecord
 
   validates :title,
     presence: true,
-    length: { maximum: 30 }
+    length: { maximum: 50 }
   validates :content, presence: true
 
   def favorited_by?(user)

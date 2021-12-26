@@ -13,7 +13,7 @@
     <tbody>
       <% users.each do |user| %>
       <tr>
-        <th><%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", size: '40x40' %></th>
+        <th><%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", size: '40x40', class: "rounded-circle" %></th>
         <th><%= link_to user.name, user_path(user) %></th>
         <th>フォロー数：<%= user.followings.count %></th>
         <th>フォロワー数：<%= user.followers.count %></th>

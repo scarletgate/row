@@ -10,7 +10,7 @@
       <ul class="list-group list-group-flush">
         <% @posts.each do |post| %>
           <li class="list-group-item">
-            <%= attachment_image_tag post.user, :profile_image, :fill, 20, 20, class: "rounded-circle" %>
+            <%= attachment_image_tag post.user, :profile_image, fallback: "no_image.jpg", size: '20x20', class: "rounded-circle" %>
             <%= link_to post.user.name, user_path(post.user_id) %>さんが<%= l post.created_at, format: :long %>に投稿<br />
             <strong><%= link_to post.title, post_path(post.id) %></strong><br />
           </li>

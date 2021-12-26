@@ -1,6 +1,6 @@
 <h4>会員情報</h4>
 <div class="py-3 profile_image">
-  <%= attachment_image_tag user, :profile_image, :fill, 100, 100, class: "rounded-circle" %>
+  <%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", size: '100x100', class: "rounded-circle" %>
 </div>
 <div>
   【ニックネーム】<%= user.name %><br />
