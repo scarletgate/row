@@ -1,10 +1,11 @@
 <!--コメント一覧-->
-<p>コメント件数：<%= post.post_comments.count %>件</p>
-<ul class="list-group">
+<p> &emsp; コメント件数：<%= post.post_comments.count %>件</p>
+<ul class="list-group list-group-flush">
 <% post.post_comments.each do |post_comment| %>
   <li class="list-group-item">
-    <%= post_comment.user.name %>さんのコメント<br />
-    <%= l post_comment.created_at, format: :long %><br />
+    <%= attachment_image_tag post.user, :profile_image, :fill, 20, 20, class: "rounded-circle" %>
+    <%= link_to post_comment.user.name, user_path(post.user_id) %>さんが<br />
+    <%= l post_comment.created_at, format: :long %>にコメント。<br />
     &nbsp;<%= post_comment.comment %>
     <% if post_comment.user == current_user %>
       <%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete, remote: true %>

@@ -5,7 +5,6 @@ class FavoritesController < ApplicationController
     favorite.user_id = current_user.id # favoriteのuser_idカラムにログインユーザーのuser.idを渡す。
     favorite.save
     @post.create_notification_favorite(current_user)
-    binding.pry
   end
 
   def destroy

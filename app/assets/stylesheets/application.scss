@@ -16,17 +16,18 @@
  @import "bootstrap";
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
+ @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap');
 
 body {
-  display: flex;
-  flex-flow: column;
-  min-height: 100vh;
-  // background-image: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%);
+ display: flex;
+ flex-flow: column;
+ min-height: 100vh;
+ font-family: 'Noto Sans JP', sans-serif;
 }
 
 main {
-  flex: 1;
-  background-color: #F0FFFF;
+ flex: 1;
+ background-color: #F0FFFF;
 }
 
 header {
@@ -42,7 +43,7 @@ footer {
 }
 
 #error_explanation {
-  color: red;
+ color: red;
 }
 
 #notice {
@@ -65,4 +66,16 @@ footer {
  background-size: cover;
  width: 100%;
  height: 85vh;
+}
+
+.list-group-item {
+ background-color: #F0FFFF;
+}
+
+.profile_image {
+ text-align : center
+}
+.paginate {
+ display: flex;
+ justify-content: center;
 }

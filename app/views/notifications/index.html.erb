@@ -7,13 +7,13 @@
       </div>
 
       <% if @notifications.exists? %>
-        <div class="list-group">
+        <div class="list-group list-group-flush">
           <%= render @notifications %><!--直下コメントアウト部分の省略形-->
           <%# @notifications.each do |notifications| %>
           　<!--部分テンプレート（パーシャル）を呼び出す-->
             <%#= render partial: 'notification', locals: {notification: notification} %>
           <%# end %>
-          <%#= paginate @notifications %>
+          <%= paginate @notifications %>
         </div>
       <% else %>
         <h4 class="text-center py-3">通知はありません</h4>

@@ -1,6 +1,6 @@
 <!--投稿一覧-->
 <% if posts.exists? %>
-  <ul class="list-group">
+  <ul class="list-group list-group-flush">
   <% posts.each do |post| %>
     <li class="list-group-item">
       <%= attachment_image_tag post.user, :profile_image, :fill, 20, 20, class: "rounded-circle" %>
@@ -11,7 +11,7 @@
     </li>
   <% end %>
   </ul>
-  <div class="pt-3">
+  <div class="pt-3 paginate">
     <%= paginate posts %>
   </div>
 <% else %>

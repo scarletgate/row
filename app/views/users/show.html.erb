@@ -9,7 +9,7 @@
       <h5 class="text-right">
         <%= link_to '新規投稿', new_post_path, class: 'fas fa-folder-plus text-dark' %>
       </h5>
-      <ul class="list-group">
+      <ul class="list-group list-group-flush">
       <% @posts.each do |post| %>
         <li class="list-group-item">
           <strong><%= link_to post.title, post_path(post.id) %></strong><br />
@@ -25,7 +25,9 @@
         </li>
       <% end %>
       </ul>
-      <%= paginate @posts %>
+      <div class="paginate">
+        <%= paginate @posts %>
+      </div>
     </div>
   </div>
 </div>

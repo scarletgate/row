@@ -26,7 +26,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @user = @post.user
     @post_comment = PostComment.new
-    @post_tags = @post.tags
+    @post_tag = @post.tags.pluck(:tag_name).join(' ')
   end
 
   def edit

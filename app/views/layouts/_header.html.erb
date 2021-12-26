@@ -12,9 +12,12 @@
         <% if user_signed_in? %>
           <li class="nav-item"><%= link_to 'マイページ', user_path(current_user.id), class: 'fas fa-user nav-link text-dark' %></li>
           <li class="nav-item notification">
-            <%= link_to '通知', notifications_path, class: 'fas fa-bell nav-link text-dark'  %>
-            <% if unchecked_notifications.any? %>
-              <i class="fa fa-circle" style="color: yellow;"></i>
+            <%= link_to notifications_path do %>
+              <% if unchecked_notifications.any? %>
+                <i class="nav-link text-dark fas fa-bell" data-fa-transform="shrink-8 left-6" style="background:Yellow">通知</i>
+              <% else %>
+                <i class="nav-link text-dark fas fa-bell">通知</i>
+              <% end %>
             <% end %>
           </li>
           <li class="nav-item"><%= link_to '投稿一覧', posts_path, class: 'fas fa-newspaper nav-link text-dark' %></li>

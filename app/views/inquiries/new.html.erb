@@ -27,8 +27,8 @@
         <div class="form-group">
           <%= f.label :subject, "【件名】" %>
           <!--エラー修正中-->
-          <%#= f.select :subject, @inquiry.subject.keys.map{|k| [I18n.t("enums.inquiry.subject.#{k}"), k]}, class: 'form-control' %>
-          <%= f.select :subject, [["ユーザーに関するお問い合わせ", "inquiries_about_users"], ["投稿に関するお問い合わせ", "inquiries_about_posting"], ["その他のお問合せ", "other_inquiries"]] %>
+          <%= f.select :subject, Inquiry.subjects.keys.map{|k| [I18n.t("enums.inquiry.subject.#{k}"), k]}, class: 'form-control' %>
+          <%#= f.select :subject, [["ユーザーに関するお問い合わせ", "inquiries_about_users"], ["投稿に関するお問い合わせ", "inquiries_about_posting"], ["その他のお問合せ", "other_inquiries"]] %>
         </div>
 
         <div class="form-group">
