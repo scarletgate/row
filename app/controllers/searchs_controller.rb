@@ -11,9 +11,9 @@ class SearchsController < ApplicationController
   def search_for(model, method, content)
     if model == 'user' # 選択した検索対象がユーザーだったら
       if method == 'perfect'
-        User.where(name: content)
+        User.where(name: content).where.not(id: current_user.id)
       else
-        User.where('name LIKE ?', '%' + content + '%')
+        User.where('name LIKE ?', '%' + content + '%').where.not(id: current_user.id)
       end
     elsif model == 'post' # 選択した検索対象が投稿だったら
       if method == 'perfect'
