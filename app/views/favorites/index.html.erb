@@ -4,11 +4,12 @@
       <h4><%= @user.name %>さんのいいねした投稿</h4>
       <!--@favoreites内のテーブルが空か確認-->
       <% if @favorites.exists? %>
+        <!--部分テンプレートで呼び出せる様に修正予定-->
         <%#= render 'posts/index', posts: @favorites %>
-        <ul class="list-group">
+        <ul class="list-group list-group-flush">
         <% @favorites.each do |favorite| %>
           <li class="list-group-item">
-            <%= attachment_image_tag favorite.post.user, :profile_image, :fill, 20, 20, class: "rounded-circle" %>
+            <%= attachment_image_tag favorite.post.user, :profile_image, fallback: "no_image.jpg", size: '20x20', class: "rounded-circle" %>
             <%= link_to favorite.post.user.name, user_path(favorite.post.user_id) %>さんが
             <%= l favorite.post.created_at, format: :long %>に投稿<br />
             <strong><%= link_to favorite.post.title, post_path(favorite.post.id) %></strong><br />
