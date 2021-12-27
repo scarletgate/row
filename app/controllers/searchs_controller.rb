@@ -3,7 +3,7 @@ class SearchsController < ApplicationController
     @model = params["model"]      # 選択した検索対象を@modelへ渡す
     @method = params["method"]    # 選択した検索方法を@methodへ渡す
     @content = params["content"]  # 検索内容を@contentへ渡す
-    @records = search_for(@model, @method, @content).page(params[:page]).reverse_order
+    @records = search_for(@model, @method, @content).where(is_shered: 'true').page(params[:page]).reverse_order
   end
 
   private
