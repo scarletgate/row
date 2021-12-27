@@ -3,7 +3,7 @@ class SearchsController < ApplicationController
     @model = params["model"]      # 選択した検索対象を@modelへ渡す
     @method = params["method"]    # 選択した検索方法を@methodへ渡す
     @content = params["content"]  # 検索内容を@contentへ渡す
-    @records = search_for(@model, @method, @content).where(is_shered: 'true').page(params[:page]).reverse_order
+    @records = search_for(@model, @method, @content).page(params[:page]).reverse_order
   end
 
   private
@@ -15,11 +15,11 @@ class SearchsController < ApplicationController
       else
         User.where('name LIKE ?', '%' + content + '%')
       end
-    elsif model == 'post' # 選択した検索対象がユーザーだったら
+    elsif model == 'post' # 選択した検索対象が投稿だったら
       if method == 'perfect'
-        Post.where(title: content)
+        Post.where(title: content).where(is_shered: 'true')
       else
-        Post.where('title LIKE ?', '%' + content + '%')
+        Post.where('title LIKE ?', '%' + content + '%').where(is_shered: 'true')
       end
     end
   end
