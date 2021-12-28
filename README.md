@@ -29,7 +29,11 @@
 また、他の人の解決方法を探したい場合など。
 
 ## 設計書
-<br>
+![ER図](https://user-images.githubusercontent.com/90127852/147515085-34ebc0d9-221e-43db-a2a4-bb8c5e00ca5d.jpg)
+- テーブル定義書
+  https://docs.google.com/spreadsheets/d/1bkTydl2Epam43ZnKe2gCycKmmmjN95fu0gz0MfoyhrI/edit?usp=sharing
+- アプリケーション詳細設計
+  https://docs.google.com/spreadsheets/d/1YgC4GCbzXqlxazctWadRaVxxELRpQ02UybNvGpayAqw/edit?usp=sharing
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1oW_U2yXFZ7n4gt21CLCFkBSL3jUxHESfnBNJCrTjRas/edit?usp=sharing
