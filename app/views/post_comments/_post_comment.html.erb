@@ -4,7 +4,7 @@
 <% post.post_comments.each do |post_comment| %>
   <li class="list-group-item">
     <%= attachment_image_tag post_comment.user, :profile_image, fallback: "no_image.jpg", size: '20x20', class: "rounded-circle" %>
-    <%= link_to post_comment.user.name, user_path(post.user_id) %>さんが<br />
+    <%= link_to post_comment.user.name, user_path(post_comment.user_id) %>さんが<br />
     <%= l post_comment.created_at, format: :long %>にコメント。<br />
     &nbsp;<%= post_comment.comment %>
     <% if post_comment.user == current_user %>
