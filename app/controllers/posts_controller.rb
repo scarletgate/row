@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
   def new
     @post = Post.new
     @tag_lists = Tag.all
@@ -30,13 +31,11 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
     @tag_list = @post.tags.pluck(:tag_name).join(' ')
     @tag_lists = Tag.all
   end
 
   def update
-    @post = Post.find(params[:id])
     tag_list = params[:post][:tag_name].split(' ')
     if @post.update(post_params)
       @post.create_tag(tag_list)
@@ -48,7 +47,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy
     redirect_to user_path(@post.user_id)
   end
@@ -57,5 +55,12 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :content, :post_image, :is_shered)
+  end
+
+  def ensure_correct_user
+    @post = Post.find(params[:id])
+    unless @post.user == current_user
+      redirect_to post_path(@post.id)
+    end
   end
 end

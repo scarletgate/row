@@ -7,7 +7,8 @@ class Post < ApplicationRecord
   has_many :tags, through: :tag_maps
   attachment :post_image
 
-  validates :is_shered, inclusion: {in: [true, false]}
+  # validates :is_shered, inclusion: {in: [true, false]}
+  validates :is_shered, presence: true
   validates :title,
     presence: true,
     length: { maximum: 50 }
