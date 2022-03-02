@@ -5,12 +5,22 @@
     </div>
     <div class="col-md-8 offset-md-1 mx-auto py-3">
       <% if @model == 'user' %>
+        <h5>【検索内容】<%= @content %></h5>
         <h5>【検索対象】ユーザー</h5>
-        <h5>【検索ワード】<%= @content %></h5>
+        <% if @method == 'part' %>
+          <h5>【検索方法】部分一致</h5>
+        <% else %>
+          <h5>【検索方法】完全一致</h5>
+        <% end%>
         <%= render 'relationships/index', users: @records %>
       <% else @model == 'post' %>
+        <h5>【検索内容】<%= @content %></h5>
         <h5>【検索対象】投稿（タイトル）</h5>
-        <h5>【検索ワード】<%= @content %></h5>
+        <% if @method == 'part' %>
+          <h5>【検索方法】部分一致</h5>
+        <% else %>
+          <h5>【検索方法】完全一致</h5>
+        <% end%>
         <%= render 'posts/index', posts: @records %>
       <% end %>
     </div>
